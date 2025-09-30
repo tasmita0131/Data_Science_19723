@@ -49,11 +49,8 @@ A portfolio project analyzing U.S. car accidents to uncover patterns in **severi
 - `data_Visualization_part.pdf` → Supporting charts & figures  
 - `part_02_ds_model_accuracy.pdf` → Model evaluation notes  
 - `USA_Car_Accident_dataset.pdf` → Dataset overview/context  
-- *(CSV not included here)* `US_Accidents_March23_sampled_500k.csv` — required by notebook  
+- `US_Accidents_March23_sampled_500k.csv` — dataset
 
 ---
 
-## Reproducibility
-1. **Install dependencies**  
-   ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn folium
+

@@ -1,90 +1,59 @@
-USA Car Accident Analysis (500k records, 46 features)
+# USA Car Accident Analysis (500k records, 46 features)
 
-A portfolio project analyzing U.S. car accidents to uncover patterns in severity, timing, weather, and geography, and to explore baseline ML models for severity classification.
+A portfolio project analyzing U.S. car accidents to uncover patterns in **severity**, **timing**, **weather**, and **geography**, and to explore **baseline ML models** for severity classification.  
 
-Built as part of my Introduction to Data Science coursework at SFBU.
+> Built as part of my *Introduction to Data Science* coursework at **San Francisco Bay University (SFBU)**.
 
-Objectives
+---
 
-Explore accident patterns by time of day, day of week, weather, and location.
+## Objectives
+- Explore accident patterns by **time of day**, **day of week**, **weather**, and **location**  
+- Engineer simple **risk categories** for decision support  
+- Train baseline **classification models** (Decision Tree, Random Forest) on a cleaned subset  
+- Communicate insights with **clear visualizations** and a short slide deck  
 
-Engineer simple risk categories for decision support.
+---
 
-Train baseline classification models (Decision Tree, Random Forest) on a cleaned subset.
+## Dataset
+- **Source:** [US_Accidents (March 2023 snapshot)](https://www.kaggle.com/sobhanmoosavi/us-accidents) – sampled **500,000 rows** with **46 columns**  
+- **Examples of features:**  
+  - `Severity`, `Start_Time`, `City`, `State`, `Weather_Condition`  
+  - `Temperature(F)`, `Wind_Speed(mph)`, `Junction`, `Traffic_Calming`  
 
-Communicate insights with clear visualizations and a short slide deck.
+> The notebook reads `US_Accidents_March23_sampled_500k.csv` and performs exploratory analysis plus lightweight modeling.
 
-Dataset
+---
 
-Source: US_Accidents (March 2023 snapshot) – sampled 500,000 rows with 46 columns.
+## Methods & Tools
+- **Languages & Libraries:** Python, pandas, numpy, matplotlib, seaborn, scikit-learn, folium  
+- **Data Cleaning:** Dropped high-missing columns, imputed numerics (median) & categoricals (mode)  
+- **Visualization:** Distributions, correlation heatmaps, commute-time analysis, folium mapping  
+- **Modeling:** Baseline classifiers — Decision Tree, Random Forest (basic tuning)  
 
-Examples of features:
-Severity, Start_Time, City, State, Weather_Condition, Temperature(F),
-Wind_Speed(mph), Junction, Traffic_Calming, etc.
+---
 
-The notebook reads US_Accidents_March23_sampled_500k.csv and performs exploratory analysis plus lightweight modeling.
+## Key Findings
+- **Weak weather–severity link** → Weather variables show *very weak* correlation with severity (highest: wind speed ≈ 0.04)  
+- **Daytime volume dominates** → Most accidents occur in the **day**, with **Severity=2** as the most common level  
+- **Peak hours & weekdays** → Accidents peak during **7–8 AM** and **4–5 PM**; **Fridays** highest, weekends lower  
+- **Risk categories** → Derived risk labels (based on weather, hour, traffic calming) → majority are **Low Risk**  
+- **Geography** → Clusters in large metros/highways; East Coast denser overall  
+- **Baseline ML** → Decision Tree ≈ **81–82%** accuracy; Random Forest ≈ **77–78%**  
 
-Methods & Tools
+---
 
-Python: pandas, numpy, matplotlib, seaborn, scikit-learn, folium
+## Repository Contents
+- `USA_Accident.ipynb` → Full exploratory analysis (cleaning, visuals, baseline models)  
+- `USA_Car_accidents_final_presentation.pdf` → Slide deck with insights & recommendations  
+- `Paper_Car_Accident.pdf` → Full written report (objectives, methods, findings, recommendations)  
+- `data_Visualization_part.pdf` → Supporting charts & figures  
+- `part_02_ds_model_accuracy.pdf` → Model evaluation notes  
+- `USA_Car_Accident_dataset.pdf` → Dataset overview/context  
+- *(CSV not included here)* `US_Accidents_March23_sampled_500k.csv` — required by notebook  
 
-Cleaning & prep: Dropping high-missing columns, imputing numerics (median) and categoricals (mode), feature simplifications (e.g., weather groupings)
+---
 
-Visualization: Distributions, correlation heatmaps, time-of-day & weekday bar charts, map sampling with folium
-
-Models: Decision Tree, Random Forest (baseline, simple tuning)
-
-Highlights (Selected Findings)
-
-Weak weather–severity link. Weather variables show very weak correlation with severity; wind speed is the highest but still only ~0.04.
-
-Daytime volume dominates. Accidents are more frequent in the day than at night; Severity=2 is the most common class overall.
-
-Peak hours & weekdays. Peaks around 7–8 AM and 4–5 PM (commute hours). Fridays are highest; weekends are lower.
-
-Risk categories. A derived risk label (based on weather, hour, traffic-calming) shows the majority as Low Risk.
-
-Geography. Densest clusters appear in large metros and along major highways; East Coast shows higher density overall.
-
-Baseline ML. Decision Tree ≈ 81–82% accuracy; Random Forest ≈ 77–78% on the subsample.
-
-Repository Contents
-
-USA_Accident.ipynb → Full exploratory analysis (cleaning, visuals, basic models).
-
-USA_Car_accidents_final_presentation.pdf → Slide deck summarizing insights and recommendations.
-
-Paper_Car_Accident.pdf → Written report (objectives, methods, findings, recommendations).
-
-data_Visualization_part.pdf → Visual analysis outputs.
-
-part_02_ds_model_accuracy.pdf → Model accuracy and preprocessing notes.
-
-USA_Car_Accident_dataset.pdf → Dataset overview and context.
-
-(CSV not included here) US_Accidents_March23_sampled_500k.csv — expected path used by the notebook.
-
-Reproducibility
-
-Environment
-
-pip install pandas numpy matplotlib seaborn scikit-learn folium
-
-
-Data
-Place US_Accidents_March23_sampled_500k.csv in the project root (or update the notebook path).
-
-Run
-Open USA_Accident.ipynb in Jupyter or Google Colab and run all cells in order.
-
-One-hot encoding over many categorical levels can produce a large sparse matrix; a subsample is used for faster modeling during iteration.
-
-Results (Short)
-
-Preprocessing eliminated high-missing columns and imputed the rest.
-
-Decision Tree delivered strong baseline accuracy with straightforward interpretability.
-
-Random Forest performed slightly lower but remains a robust baseline.
-
-Visual analyses suggested commute-time safety measures, junction/roundabout planning, and targeted monitoring in high-density corridors.
+## Reproducibility
+1. **Install dependencies**  
+   ```bash
+   pip install pandas numpy matplotlib seaborn scikit-learn folium
